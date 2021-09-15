@@ -1,6 +1,6 @@
 {
   "name": "@cobreti/fragment-site",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": "git://github.com/cobreti/fragment-site.git",
   "main": "index.js",
