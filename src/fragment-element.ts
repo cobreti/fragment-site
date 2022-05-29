@@ -38,3 +38,6 @@ class FragmentElement extends HTMLElement {
 
     }
 }
+
+
+customElements.define('nyx-fragment', FragmentElement);

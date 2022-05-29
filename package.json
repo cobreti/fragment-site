@@ -1,11 +1,12 @@
 {
   "name": "@cobreti/fragment-site",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "repository": "git://github.com/cobreti/fragment-site.git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
