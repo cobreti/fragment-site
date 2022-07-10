@@ -3,10 +3,16 @@
   "version": "1.0.2",
   "description": "",
   "repository": "git://github.com/cobreti/fragment-site.git",
-  "main": "index.js",
+  "main": "./lib/fragment-site.js",
+  "types": "./lib/fragment-site.d.ts",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "build1": "tsc -m es6 -outDir lib-ems",
+    "build-old": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +20,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
+    "@types/uuid": "^8.3.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "ts-loader": "^9.3.1",

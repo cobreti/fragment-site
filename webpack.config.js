@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/main.ts',
+    entry: './src/fragment-site.ts',
     module: {
         rules: [
             {
@@ -12,7 +12,7 @@ module.exports = {
                         configFile: 'tsconfig.json'
                     }
                 }],
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
         ],
     },
@@ -22,6 +22,10 @@ module.exports = {
     output: {
         filename: 'fragment-site.js',
         path: path.resolve(__dirname, 'lib'),
+        library: 'fragment-site',
+        libraryTarget: 'umd',
+        globalObject: 'this',
+        umdNamedDefine: true
     },
     mode: 'development',
     devtool: 'source-map'

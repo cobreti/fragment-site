@@ -1,10 +1,8 @@
-// interface fragmentProviders {
-//     [key: string]: object
-// }
-//
-// (window as any)['fragmentProviders'] = {} as fragmentProviders;
-
+import { FragmentInfo } from "fragment-info";
+import { FragmentWindow } from "fragment-window";
+import { v4 as uuidv4 } from "uuid";
 import { FragmentPortal } from "./fragment-portal";
+
 
 export class FragmentElement extends HTMLElement {
     constructor() {
@@ -16,8 +14,16 @@ export class FragmentElement extends HTMLElement {
 
         const iframe = document.createElement('iframe');
         iframe.onload = () => {
-            const frame = iframe;
-            console.log('iframe loaded');
+            let fragmentPortal = FragmentPortal.instance;
+            if (iframe.contentWindow) {
+                let window = iframe.contentWindow as FragmentWindow;
+                let fragmentInfo: FragmentInfo = {
+                    portal: fragmentPortal,
+                    id: uuidv4()
+                }
+                window.fragmentInfo = fragmentInfo;
+                window.postMessage('ready');
+            }
         }
 
         const srcAttr = this.getAttribute('src');
