@@ -11,7 +11,9 @@ export class FragmentFrame extends FragmentElement {
     }
 
     connectedCallback() {
-        console.log('FragmentElement connected');
+        console.log('FragmentFrame connected');
+        this.attachShadow({mode: 'open'});
+
     }
 
     disconnectedCallback() {

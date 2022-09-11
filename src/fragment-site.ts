@@ -4,11 +4,13 @@ import { FragmentClient } from './fragment-client'
 import { FragmentGroup } from './fragment-group';
 import { FragmentRoot } from './fragment-root';
 import { FragmentFrame } from './fragment-frame';
+import { FragmentCode } from './fragment-code';
 
 
-customElements.define('nyx-fragment', FragmentFrame);
-customElements.define('nyx-fragment-group', FragmentGroup);
-customElements.define('nyx-fragment-root', FragmentRoot);
+customElements.define('fs-fragment-code', FragmentCode);
+customElements.define('fs-fragment', FragmentFrame);
+customElements.define('fs-fragment-group', FragmentGroup);
+customElements.define('fs-fragment-root', FragmentRoot);
 
 
 
@@ -18,6 +20,7 @@ export {
     FragmentClient,
     FragmentGroup,
     FragmentRoot,
-    FragmentFrame
+    FragmentFrame,
+    FragmentCode
 }
 

@@ -11,7 +11,20 @@ export class FragmentRoot extends FragmentElement {
     connectedCallback() {
         console.log('FragmentRoot connected');
 
-        this.onFragmentInit();
+        this.attachShadow({mode: 'open'});
+
+        if (document.readyState !== 'loading') {
+            console.log('document already loaded');
+            this.onFragmentInit();
+        }
+        else {
+            console.log('document loading');
+
+            document.addEventListener('DOMContentLoaded', () => {
+                this.onFragmentInit();
+            })
+        }
+
     }
 
     disconnectedCallback() {
@@ -27,9 +40,7 @@ export class FragmentRoot extends FragmentElement {
     }
 
     onFragmentInit() {
-        for (let elm of this.childrenFragmentElementIterator()) {
-            console.log(elm);
-            elm.onFragmentInit();
-        }
+        console.log('fragmentRoot init');
+        super.onFragmentInit();
     }
 }

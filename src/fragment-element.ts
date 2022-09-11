@@ -4,7 +4,7 @@ export class FragmentElement extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('FragmentElement connected');
+        // console.log('FragmentElement connected');
     }
 
     disconnectedCallback() {
@@ -43,6 +43,14 @@ export class FragmentElement extends HTMLElement {
 
 
     onFragmentInit() {
+        this.initChildren();
+    }
+
+    initChildren() {
+        for (let elm of this.childrenFragmentElementIterator()) {
+            console.log(elm);
+            elm.onFragmentInit();
+        }
     }
 
 }
