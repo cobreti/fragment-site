@@ -7,10 +7,18 @@ import { FragmentFrame } from './fragment-frame';
 import { FragmentCode } from './fragment-code';
 
 
-customElements.define('fs-fragment-code', FragmentCode);
-customElements.define('fs-fragment', FragmentFrame);
-customElements.define('fs-fragment-group', FragmentGroup);
-customElements.define('fs-fragment-root', FragmentRoot);
+
+function defineCustomElement<T extends CustomElementConstructor>(name: string, obj: T): void {
+    if (!customElements.get(name)) {
+        customElements.define(name, obj);
+    }
+}
+
+
+defineCustomElement('fs-fragment-code', FragmentCode);
+defineCustomElement('fs-fragment', FragmentFrame);
+defineCustomElement('fs-fragment-group', FragmentGroup);
+defineCustomElement('fs-fragment-root', FragmentRoot);
 
 
 
